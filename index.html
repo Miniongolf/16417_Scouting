@@ -127,7 +127,6 @@
                     <input type="radio" id="C5" name="fieldGridButtons" value="C5">
                     <input type="radio" id="D5" name="fieldGridButtons" value="D5">
                     <input type="radio" id="E5" name="fieldGridButtons" value="E5">
-                    <button onclick="clearBeacon()">No Beacon</button>
                 </div>
                 <div class="row" id="rowD">
                     <input type="radio" id="A4" name="fieldGridButtons" value="A4">
@@ -156,6 +155,10 @@
                     <input type="radio" id="C1" name="fieldGridButtons" value="C1">
                     <input type="radio" id="D1" name="fieldGridButtons" value="D1">
                     <input type="radio" id="E1" name="fieldGridButtons" value="E1">
+                </div>
+                <div class="row" id="clearBeacon">
+                    <input type="radio" id="No beacon" name="fieldGridButtons" value="No beacon">
+                    <label for="No beacon">No beacon</label>
                 </div>
             </div>
         </div>
@@ -213,6 +216,8 @@
             
 
             console.log(link);
+
+            open(link)
 
             document.getElementById("formLink").innerHTML = link;
         }
