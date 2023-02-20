@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- Import bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Qualification Match Number -->
+        <div class="row">
+            <h3>Match #</h3>
+            <input type="text" id="matchNum" name="matchNum">
+        </div>
+
+        <!-- Team Number -->
+        <div class="row">
+            <h3>Team #</h3>
+            <input type="text" id="teamNum" name="teamNum">
+        </div>
+
+        <!-- Starting Position multiple choice -->
+        <div class="row">
+            <h3>Starting Position</h3>
+            <form>
+                <input type="radio" id="Red far" name="Starting Position" value="Red far">
+                <label for="Red far">Red far</label>
+
+                <input type="radio" id="Red close" name="Starting Position" value="Red close">
+                <label for="Red close">Red close</label>
+
+                <input type="radio" id="Blue far" name="Starting Position" value="Blue far">
+                <label for="Blue far">Blue far</label>
+
+                <input type="radio" id="Blue close" name="Starting Position" value="Blue close">
+                <label for="Blue close">Blue close</label>
+            </form>
+        </div>
+
+        <!-- Auton Target -->
+        <div class="row">
+            <h3>Auton Target</h3>
+            <form>
+                <input type="radio" id="Close high" name="Auton Target" value="Close high">
+                <label for="Close high">Close high</label>
+
+                <input type="radio" id="Mid" name="Auton Target" value="Mid">
+                <label for="Mid">Mid </label>
+
+                <input type="radio" id="Close low" name="Auton Target" value="Close low">
+                <label for="Close low">Close low</label>
+
+                <input type="radio" id="Substation high" name="Auton Target" value="Substation high">
+                <label for="Substation high">Substation high</label>
+
+                <input type="radio" id="Substation low" name="Auton Target" value="Substation low">
+                <label for="Substation low">Substation low</label>
+
+                <input type="radio" id="N/A" name="Auton Target" value="N/A">
+                <label for="N/A">N/A</label>
+            </form>
+        </div>
+
+        <!-- Auton Cones -->
+        <div class="row">
+            <h3>Auton Cones</h3>
+            <button onclick="changeNum('AutonConesNum', -1)">-</button>
+            <h4 id="AutonConesNum">0</h4>
+            <button onclick="changeNum('AutonConesNum', 1, 6)">+</button>
+        </div>
+
+        <!-- Auton Park -->
+        <div class="row">
+            <h3>Auton Park</h3>
+            <form>
+                <input type="radio" id="Yes (signal sleeve)" name="Auton Park" value="Yes (signal sleeve)">
+                <label for="Yes (signal sleeve)">Yes (signal sleeve)</label>
+
+                <input type="radio" id="Yes (no sleeve)" name="Auton Park" value="Yes (no sleeve)">
+                <label for="Yes (no sleeve)">Yes (no sleeve)</label>
+
+                <input type="radio" id="No" name="Auton Park" value="No">
+                <label for="No">No</label>
+            </form>
+        </div>
+        
+        <!-- TeleOp Low Cones-->
+        <div class="row">
+            <h3>TeleOp Low Cones</h3>
+            <button onclick="changeNum('lowConesNum', -1)">-</button>
+            <h4 id="lowConesNum">0</h4>
+            <button onclick="changeNum('lowConesNum', 1, 30)">+</button>
+        </div>
+        
+        <!-- TeleOp Mid Cones-->
+        <div class="row">
+            <h3>TeleOp Mid Cones</h3>
+            <button onclick="changeNum('midConesNum', -1)">-</button>
+            <h4 id="midConesNum">0</h4>
+            <button onclick="changeNum('midConesNum', 1, 30)">+</button>
+        </div>
+        
+        <!-- TeleOp High Cones-->
+        <div class="row">
+            <h3>TeleOp High Cones</h3>
+            <button onclick="changeNum('highConesNum', -1)">-</button>
+            <h4 id="highConesNum">0</h4>
+            <button onclick="changeNum('highConesNum', 1, 30)">+</button>
+        </div>
+
+        <!-- Endgame Beacon Position -->
+        <div class="row">
+            <h3>Endgame Beacon Position</h3>
+            <div class="container" id="fieldGrid">
+                <div class="row" id="rowA">
+                    <input type="radio" id="E5" name="fieldGridButtons" value="E5">
+                    <input type="radio" id="E4" name="fieldGridButtons" value="E4">
+                    <input type="radio" id="E3" name="fieldGridButtons" value="E3">
+                    <input type="radio" id="E2" name="fieldGridButtons" value="E2">
+                    <input type="radio" id="E1" name="fieldGridButtons" value="E1">
+                </div>
+                <div class="row" id="rowD">
+                    <input type="radio" id="D5" name="fieldGridButtons" value="D5">
+                    <input type="radio" id="D4" name="fieldGridButtons" value="D4">
+                    <input type="radio" id="D3" name="fieldGridButtons" value="D3">
+                    <input type="radio" id="D2" name="fieldGridButtons" value="D2">
+                    <input type="radio" id="D1" name="fieldGridButtons" value="D1">
+                </div>
+                <div class="row" id="rowC">
+                    <input type="radio" id="C5" name="fieldGridButtons" value="C5">
+                    <input type="radio" id="C4" name="fieldGridButtons" value="C4">
+                    <input type="radio" id="C3" name="fieldGridButtons" value="C3">
+                    <input type="radio" id="C2" name="fieldGridButtons" value="C2">
+                    <input type="radio" id="C1" name="fieldGridButtons" value="C1">
+                </div>
+                <div class="row" id="rowB">
+                    <input type="radio" id="B5" name="fieldGridButtons" value="B5">
+                    <input type="radio" id="B4" name="fieldGridButtons" value="B4">
+                    <input type="radio" id="B3" name="fieldGridButtons" value="B3">
+                    <input type="radio" id="B2" name="fieldGridButtons" value="B2">
+                    <input type="radio" id="B1" name="fieldGridButtons" value="B1">
+                </div>
+                <div class="row" id="rowA">
+                    <input type="radio" id="A5" name="fieldGridButtons" value="A5">
+                    <input type="radio" id="A4" name="fieldGridButtons" value="A4">
+                    <input type="radio" id="A3" name="fieldGridButtons" value="A3">
+                    <input type="radio" id="A2" name="fieldGridButtons" value="A2">
+                    <input type="radio" id="A1" name="fieldGridButtons" value="A1">
+                </div>
+            </div>
+        </div>
+
+    </table>
+
+    <button onclick="generateFormLink()">Submit</button>
+
+    <script>
+        // Increment with plus/minus button
+        function changeNum(elementID, change, maximum = -1) {
+            var curNum = Number(document.getElementById(elementID).innerHTML);
+            curNum += change;
+            if (curNum >= 0 && (curNum <= maximum || maximum == -1)) {
+                document.getElementById(elementID).innerHTML = curNum;
+            }
+            else if (curNum < 0) {
+                document.getElementById(elementID).innerHTML = 0;
+            }
+            console.log(curNum);
+        }
+        
+        function generateFormLink() {
+            var link = `https://docs.google.com/forms/d/e/1FAIpQLSdoE9_KP5t3vmmbo-SqEgLw-YWyYcqDCbgHjO3L_gt_VivVYg/viewform?usp=pp_url`;
+            matchNum = 1;
+            link += `&entry.1111773089=${matchNum}`
+            console.log(link)
+        }
+    </script>
+</body>
