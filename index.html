@@ -42,20 +42,20 @@
         <div class="row">
             <h3>Auton Target</h3>
             <form>
-                <input type="radio" id="Close high" name="Auton Target" value="Close high">
-                <label for="Close high">Close high</label>
+                <input type="radio" id="Close High" name="Auton Target" value="Close High">
+                <label for="Close High">Close High</label>
 
                 <input type="radio" id="Mid" name="Auton Target" value="Mid">
                 <label for="Mid">Mid </label>
 
-                <input type="radio" id="Close low" name="Auton Target" value="Close low">
-                <label for="Close low">Close low</label>
+                <input type="radio" id="Close Low" name="Auton Target" value="Close Low">
+                <label for="Close Low">Close Low</label>
 
-                <input type="radio" id="Substation high" name="Auton Target" value="Substation high">
-                <label for="Substation high">Substation high</label>
+                <input type="radio" id="Substation High" name="Auton Target" value="Substation High">
+                <label for="Substation High">Substation High</label>
 
-                <input type="radio" id="Substation low" name="Auton Target" value="Substation low">
-                <label for="Substation low">Substation low</label>
+                <input type="radio" id="Substation Low" name="Auton Target" value="Substation Low">
+                <label for="Substation Low">Substation Low</label>
 
                 <input type="radio" id="N/A" name="Auton Target" value="N/A">
                 <label for="N/A">N/A</label>
@@ -85,6 +85,14 @@
             </form>
         </div>
         
+        <!-- TeleOp Low Cones-->
+        <div class="row">
+            <h3>TeleOp Ground Junction Cones</h3>
+            <button onclick="changeNum('groundConesNum', -1)">-</button>
+            <h4 id="groundConesNum">0</h4>
+            <button onclick="changeNum('groundConesNum', 1, 30)">+</button>
+        </div>
+
         <!-- TeleOp Low Cones-->
         <div class="row">
             <h3>TeleOp Low Cones</h3>
@@ -119,6 +127,7 @@
                     <input type="radio" id="E3" name="fieldGridButtons" value="E3">
                     <input type="radio" id="E2" name="fieldGridButtons" value="E2">
                     <input type="radio" id="E1" name="fieldGridButtons" value="E1">
+                    <button onclick="clearBeacon()">No Beacon</button>
                 </div>
                 <div class="row" id="rowD">
                     <input type="radio" id="D5" name="fieldGridButtons" value="D5">
@@ -155,6 +164,8 @@
 
     <button onclick="generateFormLink()">Submit</button>
 
+    <div id="formLink"></div>
+
     <script>
         // Increment with plus/minus button
         function changeNum(elementID, change, maximum = -1) {
@@ -169,11 +180,42 @@
             console.log(curNum);
         }
         
+        function clearBeacon() {
+            document.querySelector('input[name="fieldGridButtons"]:checked').checked = false;
+        }
+
         function generateFormLink() {
             var link = `https://docs.google.com/forms/d/e/1FAIpQLSdoE9_KP5t3vmmbo-SqEgLw-YWyYcqDCbgHjO3L_gt_VivVYg/viewform?usp=pp_url`;
-            matchNum = document.getElementById(matchNum).innerHTML;
-            link += `&entry.1111773089=${matchNum}`
-            console.log(link)
+            matchNum = document.getElementById("matchNum").value;
+            teamNum = document.getElementById("teamNum").value;
+            startPos = document.querySelector('input[name="Starting Position"]:checked').value.replace(/ /g,"+");
+            autonTarget = document.querySelector('input[name="Auton Target"]:checked').value.replace(/ /g,"+");
+            autonCones = document.getElementById("AutonConesNum").innerHTML;
+            autonPark = document.querySelector('input[name="Auton Park"]:checked').value.replace(/ /g,"+");
+            groundCones = document.getElementById("groundConesNum").innerHTML;
+            lowCones = document.getElementById("lowConesNum").innerHTML;
+            midCones = document.getElementById("midConesNum").innerHTML;
+            highCones = document.getElementById("highConesNum").innerHTML;
+            beaconPos = document.querySelector('input[name="fieldGridButtons"]:checked').value;
+
+            link += `&entry.1111773089=${matchNum}`;
+            link += `&entry.1127567054=${teamNum}`;
+            link += `&entry.1007884815=${startPos}`;
+            link += `&entry.1164051351=${autonTarget}`;
+            link += `&entry.443075517=${autonCones}`;
+            link += `&entry.328230530=${autonPark}`;
+            link += `&entry.1777121679=${groundCones}`;
+            link += `&entry.44730825=${lowCones}`;
+            link += `&entry.971732476=${midCones}`;
+            link += `&entry.2039092675=${highCones}`;
+            link += `&entry.324063643=${beaconPos}`;
+
+            
+
+            console.log(link);
+
+            document.getElementById("formLink").innerHTML = link;
         }
+
     </script>
 </body>
