@@ -14,9 +14,12 @@ label {
   margin-right: 20px;
 }
 
-button {
+button:not(#submit) {
   margin-left: 10px;
   margin-right: 10px;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
 }
 
 #fieldGrid .row input {

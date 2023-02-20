@@ -51,6 +51,8 @@
                 <input type="radio" id="Close Low" name="Auton Target" value="Close Low">
                 <label for="Close Low">Close Low</label>
 
+                <br>
+
                 <input type="radio" id="Substation High" name="Auton Target" value="Substation High">
                 <label for="Substation High">Substation High</label>
 
@@ -84,7 +86,7 @@
                 <label for="No">No</label>
             </form>
         </div>
-        
+
         <!-- TeleOp Low Cones-->
         <div class="row">
             <h3>TeleOp Ground Junction Cones</h3>
@@ -163,9 +165,10 @@
             </div>
         </div>
 
-    </table>
+        <button id="submit" onclick="generateFormLink()">Submit</button>
+    </div>
 
-    <button onclick="generateFormLink()">Submit</button>
+    
 
     <script>
         // Increment with plus/minus button
