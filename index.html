@@ -166,8 +166,6 @@
     </table>
 
     <button onclick="generateFormLink()">Submit</button>
-    <br>
-    <div id="formLink"></div>
 
     <script>
         // Increment with plus/minus button
@@ -188,7 +186,8 @@
         }
 
         function generateFormLink() {
-            var link = `https://docs.google.com/forms/d/e/1FAIpQLSdoE9_KP5t3vmmbo-SqEgLw-YWyYcqDCbgHjO3L_gt_VivVYg/viewform?usp=pp_url`;
+            var link = `https://docs.google.com/forms/d/e/1FAIpQLSdoE9_KP5t3vmmbo-SqEgLw-YWyYcqDCbgHjO3L_gt_VivVYg/formResponse?usp=pp_url`;
+            
             matchNum = document.getElementById("matchNum").value;
             teamNum = document.getElementById("teamNum").value;
             startPos = document.querySelector('input[name="Starting Position"]:checked').value.replace(/ /g,"+");
@@ -212,14 +211,13 @@
             link += `&entry.971732476=${midCones}`;
             link += `&entry.2039092675=${highCones}`;
             link += `&entry.324063643=${beaconPos}`;
+            link += `&submit=Submit`;
 
             
 
             console.log(link);
 
             open(link)
-
-            document.getElementById("formLink").innerHTML = link;
         }
 
     </script>
