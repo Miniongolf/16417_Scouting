@@ -10,7 +10,7 @@ input[type=radio] {
 
 h3 {
   width: 100%;
-  font-size: 50px;
+  font-size: 100px;
 }
 
 h4 {
@@ -36,6 +36,5 @@ button:not(#submit) {
 }
 
 #fieldGrid .row input {
-  margin: 2px;
-  margin-right: 100px;
+  margin-right: 50px;
 }
