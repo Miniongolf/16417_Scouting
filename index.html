@@ -47,22 +47,22 @@
             <form>
                 <input type="radio" id="Close High" name="Auton Target" value="Close High">
                 <label for="Close High">Close High</label>
-
-                <input type="radio" id="Mid" name="Auton Target" value="Mid">
-                <label for="Mid">Mid </label>
+                
+                <input type="radio" id="Substation High" name="Auton Target" value="Substation High">
+                <label for="Substation High">Station High</label>
 
                 <br>
-
+                
                 <input type="radio" id="Close Low" name="Auton Target" value="Close Low">
                 <label for="Close Low">Close Low</label>
 
-                <input type="radio" id="Substation High" name="Auton Target" value="Substation High">
-                <label for="Substation High">Substation High</label>
+                <input type="radio" id="Substation Low" name="Auton Target" value="Substation Low">
+                <label for="Substation Low">Station Low</label>
 
                 <br>
 
-                <input type="radio" id="Substation Low" name="Auton Target" value="Substation Low">
-                <label for="Substation Low">Substation Low</label>
+                <input type="radio" id="Mid" name="Auton Target" value="Mid">
+                <label for="Mid">Mid </label>
 
                 <input type="radio" id="N/A" name="Auton Target" value="N/A">
                 <label for="N/A">N/A</label>
@@ -170,6 +170,26 @@
                     <label for="No beacon">No beacon</label>
                 </div>
             </div>
+            
+        </div>
+
+        <!-- Interferes (y/n) -->
+        <div class="row">
+            <h3>Interferes (effective/not effective/n)</h3>
+            <form>
+                <input type="radio" id="interferesYesGood" name="interferes" value="Yes (effective)">
+                <label for="interferesYesGood">Yes (effective)</label>
+                
+                <br>
+
+                <input type="radio" id="interferesYesBad" name="interferes" value="Yes (not effective)">
+                <label for="interferesYesBad">Yes (not effective)</label>
+
+                <br>
+
+                <input type="radio" id="interferesNo" name="interferes" value="No">
+                <label for="interferesNo">No</label>
+            </form>
         </div>
 
         <button id="submit" onclick="generateFormLink()">Submit</button>
@@ -177,57 +197,6 @@
 
     
 
-    <script>
-        // Increment with plus/minus button
-        function changeNum(elementID, change, maximum = -1) {
-            var curNum = Number(document.getElementById(elementID).innerHTML);
-            curNum += change;
-            if (curNum >= 0 && (curNum <= maximum || maximum == -1)) {
-                document.getElementById(elementID).innerHTML = curNum;
-            }
-            else if (curNum < 0) {
-                document.getElementById(elementID).innerHTML = 0;
-            }
-        }
-        
-        function clearBeacon() {
-            document.querySelector('input[name="fieldGridButtons"]:checked').checked = false;
-        }
-
-        function generateFormLink() {
-            var link = `https://docs.google.com/forms/d/e/1FAIpQLSdoE9_KP5t3vmmbo-SqEgLw-YWyYcqDCbgHjO3L_gt_VivVYg/formResponse?usp=pp_url`;
-            
-            matchNum = document.getElementById("matchNum").value;
-            teamNum = document.getElementById("teamNum").value;
-            startPos = document.querySelector('input[name="Starting Position"]:checked').value.replace(/ /g,"+");
-            autonTarget = document.querySelector('input[name="Auton Target"]:checked').value.replace(/ /g,"+");
-            autonCones = document.getElementById("AutonConesNum").innerHTML;
-            autonPark = document.querySelector('input[name="Auton Park"]:checked').value.replace(/ /g,"+");
-            groundCones = document.getElementById("groundConesNum").innerHTML;
-            lowCones = document.getElementById("lowConesNum").innerHTML;
-            midCones = document.getElementById("midConesNum").innerHTML;
-            highCones = document.getElementById("highConesNum").innerHTML;
-            beaconPos = document.querySelector('input[name="fieldGridButtons"]:checked').value;
-
-            link += `&entry.1111773089=${matchNum}`;
-            link += `&entry.1127567054=${teamNum}`;
-            link += `&entry.1007884815=${startPos}`;
-            link += `&entry.1164051351=${autonTarget}`;
-            link += `&entry.443075517=${autonCones}`;
-            link += `&entry.328230530=${autonPark}`;
-            link += `&entry.1777121679=${groundCones}`;
-            link += `&entry.44730825=${lowCones}`;
-            link += `&entry.971732476=${midCones}`;
-            link += `&entry.2039092675=${highCones}`;
-            link += `&entry.324063643=${beaconPos}`;
-            link += `&submit=Submit`;
-
-            
-
-            console.log(link);
-
-            open(link)
-        }
-
+    <script src="index.js">
     </script>
 </body>
