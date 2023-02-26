@@ -175,15 +175,15 @@
 
         <!-- Interferes (y/n) -->
         <div class="row">
-            <h3>Interferes (effective/not effective/n)</h3>
+            <h3>Interferes</h3>
             <form>
-                <input type="radio" id="interferesYesGood" name="interferes" value="Yes (effective)">
-                <label for="interferesYesGood">Yes (effective)</label>
+                <input type="radio" id="interferesYesGood" name="interferes" value="Yes+(good)">
+                <label for="interferesYesGood">Yes 🟢</label>
                 
                 <br>
 
-                <input type="radio" id="interferesYesBad" name="interferes" value="Yes (not effective)">
-                <label for="interferesYesBad">Yes (not effective)</label>
+                <input type="radio" id="interferesYesBad" name="interferes" value="Yes+(bad)">
+                <label for="interferesYesBad">Yes 🔴</label>
 
                 <br>
 
@@ -195,8 +195,5 @@
         <button id="submit" onclick="generateFormLink()">Submit</button>
     </div>
 
-    
-
-    <script src="index.js">
-    </script>
+    <script src="index.js"></script>
 </body>

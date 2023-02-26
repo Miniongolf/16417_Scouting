@@ -10,10 +10,6 @@ function changeNum(elementID, change, maximum = -1) {
     }
 }
 
-function clearBeacon() {
-    document.querySelector('input[name="fieldGridButtons"]:checked').checked = false;
-}
-
 // Gets the form link
 function generateFormLink() {
     var link = `https://docs.google.com/forms/d/e/1FAIpQLSdoE9_KP5t3vmmbo-SqEgLw-YWyYcqDCbgHjO3L_gt_VivVYg/formResponse?usp=pp_url`;
@@ -30,6 +26,7 @@ function generateFormLink() {
     midCones = document.getElementById("midConesNum").innerHTML;
     highCones = document.getElementById("highConesNum").innerHTML;
     beaconPos = document.querySelector('input[name="fieldGridButtons"]:checked').value;
+    interferes = document.querySelector('input[name="interferes"]:checked').value.replace(/ /g,"+");
     // #endregion get form values
 
     // #region add form values to link
@@ -44,6 +41,7 @@ function generateFormLink() {
     link += `&entry.971732476=${midCones}`;
     link += `&entry.2039092675=${highCones}`;
     link += `&entry.324063643=${beaconPos}`;
+    link += `&entry.1907658295=${interferes}`;
     link += `&submit=Submit`;
     // #endregion add form values to link
     
