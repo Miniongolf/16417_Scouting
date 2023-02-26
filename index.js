@@ -27,6 +27,7 @@ function generateFormLink() {
     highCones = document.getElementById("highConesNum").innerHTML;
     beaconPos = document.querySelector('input[name="fieldGridButtons"]:checked').value;
     interferes = document.querySelector('input[name="interferes"]:checked').value.replace(/ /g,"+");
+    circuit = document.querySelector('input[name="circuit"]:checked').value.replace(/ /g,"+");
     // #endregion get form values
 
     // #region add form values to link
@@ -42,6 +43,7 @@ function generateFormLink() {
     link += `&entry.2039092675=${highCones}`;
     link += `&entry.324063643=${beaconPos}`;
     link += `&entry.1907658295=${interferes}`;
+    link += `&entry.166044511=${circuit}`;
     link += `&submit=Submit`;
     // #endregion add form values to link
     
