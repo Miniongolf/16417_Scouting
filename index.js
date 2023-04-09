@@ -1,3 +1,10 @@
+var autonCones = []
+
+function addAutonCone {
+    var curCone = 
+    autonCones.push(curCone);
+}
+
 // Increment with plus/minus button
 function changeNum(elementID, change, maximum = -1) {
     var curNum = Number(document.getElementById(elementID).innerHTML);
