@@ -1,20 +1,33 @@
-var autonCones = []
+/* #region Declare Variables */
+    // Init
+    var matchNum = document.getElementById("matchNum.value");
+    var teamNum = document.getElementById("teamNum.value");
+    var startPos;
+    var randomize;
 
-function addAutonCone {
-    var curCone = 
+    // Auton
+    var autonCones = [];
+    var robotPos;
+
+    // Driver
+    var strategy
+/* #endregion */
+
+/* #region Init */
+    // Set robot starting position
+    function setStartPos(position) {
+        startPos = position;
+        if (startPos[0] == 'B') {
+            document.getElementById("startPosDisp").innerHTML = `Starting Position: <i class="bTxt">${startPos}</i>`;
+        } else {
+            document.getElementById("startPosDisp").innerHTML = `Starting Position: <i class="rTxt">${startPos}</i>`;
+        }
+    }
+/* #endregion */
+
+// Add an auton cone
+function addAutonCone(curCone) {
     autonCones.push(curCone);
-}
-
-// Increment with plus/minus button
-function changeNum(elementID, change, maximum = -1) {
-    var curNum = Number(document.getElementById(elementID).innerHTML);
-    curNum += change;
-    if (curNum >= 0 && (curNum <= maximum || maximum == -1)) {
-        document.getElementById(elementID).innerHTML = curNum;
-    }
-    else if (curNum < 0) {
-        document.getElementById(elementID).innerHTML = 0;
-    }
 }
 
 // Gets the form link
