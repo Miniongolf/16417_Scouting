@@ -46,30 +46,58 @@
                     <button class="red" onclick="setStartPos('Red close')">Red close</button>
                 </div>
             </div>
+
+            <!-- Parking Randomization -->
+            <div id="randomPosDiv" class="row">
+                <h3 id="randomPosDisp">Randomization</h3>
+                
+                <!-- Button selection -->
+                <div>
+                    <button class="sys" onclick="setRandomPos('1')">1</button>
+                    <button class="sys" onclick="setRandomPos('2')">2</button>
+                    <button class="sys" onclick="setRandomPos('3')">3</button>
+                </div>
+            </div>
+
         <!-- #endregion Init -->
 
         <!-- #region Auton -->
             <!-- Auton header -->
-            <div class="row header">Auton</div>
+            <div id="autonHeader" class="row header">Auton</div>
 
             <!-- Auton cones -->
             <div id="autonConesDiv" class="row">
-                <div id="conesList"></div>
+                <h3 id="autonConesDisp">Auton Cones</h3>
 
+                <!-- Button queue -->
                 <div>
-                    <button class="green" onclick="addAutonCone('Close High')">Close high</button>
-                    <button class="orange" onclick="addAutonCone('Mid')">Mid height</button>
-                    <button class="red" onclick="addAutonCone('Close Low')">Close low</button>
+                    <button class="green" onclick="addAutonCone('Close high')">Close high</button>
+                    <button class="orange" onclick="addAutonCone('Mid height')">Mid height</button>
+                    <button class="red" onclick="addAutonCone('Close low')">Close low</button>
 
                     <br>
 
-                    <button class="green" onclick="addAutonCone('Station High')">Station high</button>
-                    <button class="invis"></button>
-                    <button class="red" onclick="addAutonCone('Station Low')">Station low</button>
+                    <button class="green" onclick="addAutonCone('Station high')">Station high</button>
+                    <button class="green" onclick="addAutonCone('Opp high')">Opp high</button>
+                    <button class="red" onclick="addAutonCone('Station low')">Station low</button>
 
                     <br>
 
-                    <button class="blue" onclick="clearAutonCones()">Clear</button>
+                    <!-- Clear button -->
+                    <button class="sys" onclick="undoAutonCones()">Undo</button>
+                    <button class="sys" onclick="clearAutonCones()">Clear</button>
+                </div>
+            </div>
+
+            <!-- Auton Parking -->
+            <div id="parkingPosDiv" class="row">
+                <h3 id="parkingPosDisp">Auton Parking</h3>
+                
+                <!-- Button selection -->
+                <div>
+                    <button class="sys" onclick="setParkingPos('1')">1</button>
+                    <button class="sys" onclick="setParkingPos('2')">2</button>
+                    <button class="sys" onclick="setParkingPos('3')">3</button>
                 </div>
             </div>
         <!-- #endregion Auton -->

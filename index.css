@@ -7,6 +7,7 @@
         body {
             margin: 0px;
             padding: 0px;
+            padding-left: 15px;
             border: 0px;
             background-color: #313338;
             color: #ffffff;
@@ -17,6 +18,7 @@
         border-color: white;
         color: white;
         margin: 10px 10px 0px 0px;
+        font-size: 18px;
     }
 
     .row { /* Add 50px bottom padding */
@@ -42,7 +44,7 @@
 
 /* #region Custom background colours */
     .blue {
-        background-color: rgb(0, 150, 255);
+        background-color: rgb(0, 140, 255);
     }
 
     .green {
@@ -61,35 +63,57 @@
         background-color: #313338;
         border: #313338;
     }
+
+    .sys {
+        background-color: rgb(18, 15, 03);
+    }
 /* #endregion */
 
 /* #region Custom font colours */
-.bTxt {
-    color: rgb(0, 150, 255);
-}
+    .bTxt {
+        color: rgb(0, 180, 255);
+    }
 
-.gTxt {
-    color: rgb(10, 173, 18);
-}
+    .gTxt {
+        color: rgb(2, 216, 12);
+    }
 
-.oTxt {
-    color: rgb(255, 128, 0);
-}
+    .oTxt {
+        color: rgb(255, 153, 0);
+    }
 
-.rTxt {
-    color: rgb(244, 49, 49);
-}
+    .rTxt {
+        color: rgb(255, 34, 34);
+    }
 
+    .sTxt {
+        color: rgb(255, 255, 0);
+    }
 /* #endregion */
 
 /* #region Focussed changes */
     /* startPosDiv */
     #startPosDiv button {
-        width: 100px;
+        width: 65px;
+        height: 65px;
+    }
+
+    /* randomPosDiv */
+    #randomPosDiv button {
+        width: 50px;
+        height: 50px;
     }
 
     /* autonConesDiv */
     #autonConesDiv button {
         width: 75px;
     }
+
+    /* parkingPosDiv */
+    #parkingPosDiv button {
+        width: 50px;
+        height: 50px;
+    }
+
+
 /* #endregion */
