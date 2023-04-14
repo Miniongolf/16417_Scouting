@@ -1,4 +1,4 @@
-/* #region Declare Variables */
+// #region Declare Variables
     // Init
     var matchNum = document.getElementById("matchNum.value");
     var teamNum = document.getElementById("teamNum.value");
@@ -9,12 +9,19 @@
     var autonCones = [];
     var parkingPos;
 
-    // Driver
-    var strategy
+    // TeleOp
+    var stratsDict = {"Cycle": false, "Ownership": false, "Circuit": false};
+    var doesCycle, doesOwnership, doesCircuit;
 
-/* #endregion */
+// #endregion
 
-/* #region Init */
+// #region colours
+    function toColour(string, colour, tag, isUsingClass) {
+        if (isUsingClass) {return `<i class="${colour}">${string}</i>`}
+    }
+// #endregion
+
+// #region Init
     // Set robot starting position
     function setStartPos(position) {
         startPos = position;
@@ -30,13 +37,13 @@
         document.getElementById("randomPosDisp").innerHTML = `Randomization: <i class="sTxt">${position}</i>`;
         calcAutonScore();
     }
-/* #endregion */
+// #endregion
 
-/* #region Auton */
+// #region Auton
     // Calculate auton score
     function calcAutonScore() {
         var autonScore = 0;
-        autonHeader = document.getElementById("autonHeader");
+        disAuton = document.getElementById("disAuton");
         
         for (i in autonCones) {
             curCone = autonCones[i]
@@ -49,8 +56,8 @@
             autonScore += 20;
         }
 
-        outputStr = `Auton: ${autonScore}`;
-        autonHeader.innerHTML = outputStr;
+        outputStr = `Auton Score: ${autonScore}`;
+        disAuton.innerHTML = outputStr;
     }
 
     // Add an auton cone
@@ -71,10 +78,21 @@
                 outputStr += ` ${autonCones[i]} x1 |`;
             }
         }
+        
+        outputStr = outputStr.replace(/Station high/g, toColour("S", "gTxt", "i", true));
+        outputStr = outputStr.replace(/Close high/g,   toColour("C", "gTxt", "i", true));
+        outputStr = outputStr.replace(/Opp high/g,     toColour("O", "gTxt", "i", true));
+        outputStr = outputStr.replace(/Mid/g,          toColour("M", "oTxt", "i", true));
+        outputStr = outputStr.replace(/Station low/g,  toColour("S", "rTxt", "i", true));
+        outputStr = outputStr.replace(/Close low/g,    toColour("L", "rTxt", "i", true));
+        outputStr = outputStr.replace(/\*Miss\*/g,     "</i>&#128683<i>");
         outputStr = outputStr.slice(0, -2) + "</i>";
+        
+        /*
         outputStr = outputStr.replace(/high/g, "</i>&#129001<i>");
         outputStr = outputStr.replace(/height/g, "</i>&#128999<i>");
         outputStr = outputStr.replace(/low/g, "</i>&#128997<i>");
+        */
 
         return outputStr;
     }
@@ -144,7 +162,55 @@
         calcAutonScore();
     }
 
-/* #endregion Auton */
+// #endregion Auton
+
+// #region TeleOp
+    function genStrategy() {
+        const stratsList = ["Cycle", "Ownership", "Circuit"];
+        var outputStr = "Strategy: ";
+        var stratsStr = "";
+        for (var i = 0; i < 3; i++) {
+            console.log(stratsList[i])
+            if (stratsDict[stratsList[i]]) {
+                console.log("here");
+                stratsStr += `${stratsList[i]} `;
+            }
+        }
+        stratsStr = stratsStr.slice(0, -1);
+        stratsStr = stratsStr.replace(/ /, " + ");
+
+        outputStr += stratsStr;
+
+        return outputStr;
+    }
+
+    function genStratButtons() {
+        var cycleColour = stratsDict["Cycle"] ? "green":"sys";
+        var ownerColour = stratsDict["Ownership"] ? "green":"sys";
+        var circuitColour = stratsDict["Circuit"] ? "green":"sys";
+
+        outputStr = `<button class="${cycleColour}" onclick="toggleStrat('Cycle')">Cycle</button>
+                     <button class="invis">+</button>
+                     <button class="${ownerColour}" onclick="toggleStrat('Ownership')">Ownership</button>
+                     <button class="${circuitColour}" onclick="toggleStrat('Circuit')">Circuit</button>`
+
+        return(outputStr);
+    }
+
+    function toggleStrat(strat) {
+        stratsDict[strat] = !stratsDict[strat]
+
+        if (strat == "Ownership") {
+            stratsDict["Circuit"] = false;
+        } else if (strat == "Circuit") {
+            stratsDict["Ownership"] = false;
+        }
+
+        document.getElementById("stratDisp").innerHTML = genStrategy();
+        document.getElementById("stratSelectorDiv").innerHTML = genStratButtons();
+    }
+
+// #endregion TeleOp
 
 // Gets the form link
 function generateFormLink() {

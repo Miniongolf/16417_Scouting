@@ -39,11 +39,11 @@
                 
                 <!-- Button selection -->
                 <div>
-                    <button class="blue" onclick="setStartPos('Blue far')">Blue far</button>
-                    <button class="red" onclick="setStartPos('Red far')">Red far</button>
+                    <button class="blue" onclick="setStartPos('Blue far')">Blue<br>far</button>
+                    <button class="red" onclick="setStartPos('Red far')">Red<br>far</button>
                     <br>
-                    <button class="blue" onclick="setStartPos('Blue close')">Blue close</button>
-                    <button class="red" onclick="setStartPos('Red close')">Red close</button>
+                    <button class="blue" onclick="setStartPos('Blue close')">Blue<br>close</button>
+                    <button class="red" onclick="setStartPos('Red close')">Red<br>close</button>
                 </div>
             </div>
 
@@ -72,8 +72,9 @@
                 <!-- Button queue -->
                 <div>
                     <button class="green" onclick="addAutonCone('Close high')">Close high</button>
-                    <button class="orange" onclick="addAutonCone('Mid height')">Mid height</button>
+                    <button class="orange" onclick="addAutonCone('Mid')">Mid height</button>
                     <button class="red" onclick="addAutonCone('Close low')">Close low</button>
+                    <button class="blue" onclick="addAutonCone('*Miss*')">Missed cone</button>
 
                     <br>
 
@@ -100,9 +101,28 @@
                     <button class="sys" onclick="setParkingPos('3')">3</button>
                 </div>
             </div>
+
+            <!-- Score Display -->
+            <div id="disAuton" class="row sTxt"></div>
         <!-- #endregion Auton -->
 
+        <!-- #region TeleOp -->
+            <!-- TeleOp header -->
+            <div id="teleOpHeader" class="row header">TeleOp</div>
+            
+            <!-- Auton Parking -->
+            <div id="stratDiv" class="row">
+                <h3 id="stratDisp">Strategy</h3>
+                
+                <!-- Button selection -->
+                <div id="stratSelectorDiv">
+                    <button class="sys" onclick="toggleStrat('Cycle')">Cycle</button>
+                    <button class="invis">+</button>
+                    <button class="sys" onclick="toggleStrat('Ownership')">Ownership</button>
+                    <button class="sys" onclick="toggleStrat('Circuit')">Circuit</button>
+                </div>
+            </div>
+        <!-- #endregion -->
+
     </div>
-    
-    
 </body>

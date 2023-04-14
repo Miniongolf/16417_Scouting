@@ -92,28 +92,35 @@
 /* #endregion */
 
 /* #region Focussed changes */
-    /* startPosDiv */
-    #startPosDiv button {
-        width: 65px;
-        height: 65px;
-    }
+    /* #region Auton */
+        /* startPosDiv */
+        #startPosDiv button {
+            width: 80px;
+            height: 80px;
+        }
 
-    /* randomPosDiv */
-    #randomPosDiv button {
-        width: 50px;
-        height: 50px;
-    }
+        /* randomPosDiv */
+        #randomPosDiv button {
+            width: 50px;
+            height: 50px;
+        }
 
-    /* autonConesDiv */
-    #autonConesDiv button {
-        width: 75px;
-    }
+        /* autonConesDiv */
+        #autonConesDiv button {
+            width: 75px;
+            height: 75px;
+        }
 
-    /* parkingPosDiv */
-    #parkingPosDiv button {
-        width: 50px;
-        height: 50px;
-    }
+        /* parkingPosDiv */
+        #parkingPosDiv button {
+            width: 50px;
+            height: 50px;
+        }
 
+        /* disAuton */
+        #disAuton {
+            font-size: 30px;
+        }
+    /* #endregion */
 
 /* #endregion */
