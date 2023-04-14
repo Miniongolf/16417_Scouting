@@ -1,7 +1,7 @@
 /* #region Changes for the whole page */
     /* #region page config */
         * {
-            touch-action: none;
+            touch-action: manipulation;
         }
 
         body {
