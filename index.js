@@ -3,13 +3,16 @@
     var matchNum = document.getElementById("matchNum.value");
     var teamNum = document.getElementById("teamNum.value");
     var startPos;
+    var startSide;
     var randomPos;
 
     // Auton
     var autonCones = [];
     var parkingPos;
+    var autonScore = 0;
 
     // TeleOp
+    var stratsStr = "";
     var stratsDict = {"Cycle": false, "Ownership": false, "Circuit": false};
     var doesCycle, doesOwnership, doesCircuit;
 
@@ -30,6 +33,15 @@
         } else {
             document.getElementById("startPosDisp").innerHTML = `Starting Position: <i class="rTxt">${position}</i>`;
         }
+        
+        if (startPos == "Blue far" || startPos == "Red close") {
+            startSide = "Left";
+        } else if (startPos == "Blue close" || startPos == "Red far") {
+            startSide = "Right";
+        } else {
+            console.log("Siding error");
+        }
+        console.log(startSide);
     }
 
     function setRandomPos(position) {
@@ -42,7 +54,7 @@
 // #region Auton
     // Calculate auton score
     function calcAutonScore() {
-        var autonScore = 0;
+        autonScore = 0;
         disAuton = document.getElementById("disAuton");
         
         for (i in autonCones) {
@@ -128,7 +140,6 @@
         displayDiv.innerHTML = genAutonCones();
         
         calcAutonScore();
-        console.log(autonCones);
     }
 
     // Removes the last auton cone
@@ -143,7 +154,6 @@
         }
 
         calcAutonScore();
-        console.log(autonCones);
     }
 
     // Clear the auton cones
@@ -168,11 +178,9 @@
     function genStrategy() {
         const stratsList = ["Cycle", "Ownership", "Circuit"];
         var outputStr = "Strategy: ";
-        var stratsStr = "";
+        stratsStr = "";
         for (var i = 0; i < 3; i++) {
-            console.log(stratsList[i])
             if (stratsDict[stratsList[i]]) {
-                console.log("here");
                 stratsStr += `${stratsList[i]} `;
             }
         }
@@ -190,7 +198,7 @@
         var circuitColour = stratsDict["Circuit"] ? "green":"sys";
 
         outputStr = `<button class="${cycleColour}" onclick="toggleStrat('Cycle')">Cycle</button>
-                     <button class="invis">+</button>
+                     <button class="invis" style="padding:0px;">+</button>
                      <button class="${ownerColour}" onclick="toggleStrat('Ownership')">Ownership</button>
                      <button class="${circuitColour}" onclick="toggleStrat('Circuit')">Circuit</button>`
 
@@ -213,6 +221,7 @@
 // #endregion TeleOp
 
 // Gets the form link
+/*
 function generateFormLink() {
     var link = `https://docs.google.com/forms/d/e/1FAIpQLSdoE9_KP5t3vmmbo-SqEgLw-YWyYcqDCbgHjO3L_gt_VivVYg/formResponse?usp=pp_url`;
     
@@ -251,4 +260,29 @@ function generateFormLink() {
     
     console.log(link);
     open(link)
+}
+*/
+
+// Example link: 
+// https://docs.google.com/forms/d/e/1FAIpQLScfip4xqA6_sHUVIx5n9OQWzKGp4TLn_0gSyL_qSBb4_KVV0A/viewform?usp=pp_url&entry.2069581590=matchNum&entry.844732376=teamNum&entry.1470326169=Blue+far&entry.1186107460=Left&entry.1017313550=3&entry.980911135=autonCones&entry.436157894=3&entry.230575694=teleOpStrat
+
+//https://docs.google.com/forms/d/e/1FAIpQLScfip4xqA6_sHUVIx5n9OQWzKGp4TLn_0gSyL_qSBb4_KVV0A/viewform?usp=pp_url
+
+//https://docs.google.com/forms/d/e/1FAIpQLScfip4xqA6_sHUVIx5n9OQWzKGp4TLn_0gSyL_qSBb4_KVV0A/viewform?usp=pp_url&entry.1049932560=3 
+
+function genFormLink() {
+    matchNum = document.getElementById("matchNum").value;
+    teamNum = document.getElementById("teamNum").value;
+
+    conesUsed = autonCones.length;
+    
+    var autonConesStr = "";
+    for (i in autonCones) {
+        autonConesStr += `${autonCones[i]} `;
+    }
+
+    var formURL = `https://docs.google.com/forms/d/e/1FAIpQLScfip4xqA6_sHUVIx5n9OQWzKGp4TLn_0gSyL_qSBb4_KVV0A/formResponse?usp=pp_url&entry.2069581590=${matchNum}&entry.844732376=${teamNum}&entry.1470326169=${startPos}&entry.1186107460=${startSide}&entry.1017313550=${randomPos}&entry.980911135=${autonConesStr}&entry.1049932560=${conesUsed}&entry.2006005073=${autonScore}&entry.436157894=${parkingPos}&entry.230575694=${stratsStr}&submit=Submit`.replace(/ /g, '+');
+
+    console.log(formURL);
+    open(formURL);
 }

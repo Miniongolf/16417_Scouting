@@ -19,6 +19,7 @@
         color: white;
         margin: 10px 10px 0px 0px;
         font-size: 18px;
+        text-align: center;
     }
 
     .row { /* Add 50px bottom padding */
@@ -38,7 +39,6 @@
 
     p {
         width: 100%;
-        font-style: italic;
     }
 /* #endregion */
 
@@ -119,6 +119,11 @@
 
         /* disAuton */
         #disAuton {
+            font-size: 30px;
+        }
+
+        /* submitDiv */
+        #submitDiv button {
             font-size: 30px;
         }
     /* #endregion */
