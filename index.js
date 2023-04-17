@@ -97,7 +97,7 @@
         outputStr = outputStr.replace(/Mid/g,          toColour("M", "oTxt", "i", true));
         outputStr = outputStr.replace(/Station low/g,  toColour("S", "rTxt", "i", true));
         outputStr = outputStr.replace(/Close low/g,    toColour("L", "rTxt", "i", true));
-        outputStr = outputStr.replace(/\*Miss\*/g,     "</i>&#128683<i>");
+        outputStr = outputStr.replace(/\*Miss\*/g,     toColour("X", "bTxt", "i", true));
         outputStr = outputStr.slice(0, -2) + "</i>";
         
         /*

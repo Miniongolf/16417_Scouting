@@ -106,9 +106,9 @@
         }
 
         /* autonConesDiv */
-        #autonConesDiv button {
-            width: 75px;
-            height: 75px;
+        #autonConesDiv .coneBtn {
+            width: 50px;
+            height: 50px;
         }
 
         /* parkingPosDiv */
