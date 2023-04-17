@@ -19,8 +19,8 @@
 // #endregion
 
 // #region colours
-    function toColour(string, colour, tag, isUsingClass) {
-        if (isUsingClass) {return `<i class="${colour}">${string}</i>`}
+    function toColour(string, colour) {
+        return `<i class="${colour}">${string}</i>`;
     }
 // #endregion
 
@@ -75,30 +75,30 @@
     // Add an auton cone
     function genAutonCones() {
         var curCount = 1;
-        var outputStr = `Auton Cones: <i>${autonCones[0]} x1 |`;
+        var outputStr = `Auton Cones: <i>${autonCones[0]}x1 `;
         
         for (let i = 1; i < autonCones.length; i++) {
             if (autonCones[i] == autonCones[i-1]) {
                 curCount += 1;
                 if (curCount < 11) {
-                    outputStr = `${outputStr.slice(0, -3)}${curCount} |`;
+                    outputStr = `${outputStr.slice(0, -2)}${curCount} `;
                 } else {
-                    outputStr = `${outputStr.slice(0, -4)}${curCount} |`;
+                    outputStr = `${outputStr.slice(0, -3)}${curCount} `;
                 }
             } else {
                 curCount = 1;
-                outputStr += ` ${autonCones[i]} x1 |`;
+                outputStr += `${autonCones[i]}x1 `;
             }
         }
         
-        outputStr = outputStr.replace(/Station high/g, toColour("S", "gTxt", "i", true));
-        outputStr = outputStr.replace(/Close high/g,   toColour("C", "gTxt", "i", true));
-        outputStr = outputStr.replace(/Opp high/g,     toColour("O", "gTxt", "i", true));
-        outputStr = outputStr.replace(/Mid/g,          toColour("M", "oTxt", "i", true));
-        outputStr = outputStr.replace(/Station low/g,  toColour("S", "rTxt", "i", true));
-        outputStr = outputStr.replace(/Close low/g,    toColour("L", "rTxt", "i", true));
-        outputStr = outputStr.replace(/\*Miss\*/g,     toColour("X", "bTxt", "i", true));
-        outputStr = outputStr.slice(0, -2) + "</i>";
+        outputStr = outputStr.replace(/Station high/g, toColour("S", "gTxt"));
+        outputStr = outputStr.replace(/Close high/g,   toColour("C", "gTxt"));
+        outputStr = outputStr.replace(/Opp high/g,     toColour("O", "gTxt"));
+        outputStr = outputStr.replace(/Mid/g,          toColour("M", "oTxt"));
+        outputStr = outputStr.replace(/Station low/g,  toColour("S", "rTxt"));
+        outputStr = outputStr.replace(/Close low/g,    toColour("L", "rTxt"));
+        outputStr = outputStr.replace(/\*Miss\*/g,     toColour("X", "bTxt"));
+        outputStr = outputStr.slice(0, -1) + "</i>";
         
         /*
         outputStr = outputStr.replace(/high/g, "</i>&#129001<i>");
