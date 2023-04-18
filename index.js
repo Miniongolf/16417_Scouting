@@ -75,7 +75,7 @@
     // Add an auton cone
     function genAutonCones() {
         var curCount = 1;
-        var outputStr = `Auton Cones: <i>${autonCones[0]}x1 `;
+        var outputStr = `${autonCones[0]}x1 `;
         
         for (let i = 1; i < autonCones.length; i++) {
             if (autonCones[i] == autonCones[i-1]) {
