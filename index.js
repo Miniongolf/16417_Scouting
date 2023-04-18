@@ -99,12 +99,7 @@
         outputStr = outputStr.replace(/Close low/g,    toColour("L", "rTxt"));
         outputStr = outputStr.replace(/\*Miss\*/g,     toColour("X", "bTxt"));
         outputStr = outputStr.slice(0, -1) + "</i>";
-        
-        /*
-        outputStr = outputStr.replace(/high/g, "</i>&#129001<i>");
-        outputStr = outputStr.replace(/height/g, "</i>&#128999<i>");
-        outputStr = outputStr.replace(/low/g, "</i>&#128997<i>");
-        */
+
 
         return outputStr;
     }
