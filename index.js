@@ -75,7 +75,7 @@
     // Add an auton cone
     function genAutonCones() {
         var curCount = 1;
-        var outputStr = `${autonCones[0]}x1 `;
+        var outputStr = `<i>${autonCones[0]}x1 `;
         
         for (let i = 1; i < autonCones.length; i++) {
             if (autonCones[i] == autonCones[i-1]) {
@@ -100,12 +100,11 @@
         outputStr = outputStr.replace(/\*Miss\*/g,     toColour("X", "bTxt"));
         outputStr = outputStr.slice(0, -1) + "</i>";
 
-
         return outputStr;
     }
 
     function addAutonCone(curCone) {
-        var displayDiv = document.getElementById("autonConesDisp");
+        var displayTxt = document.getElementById("autonConesDisp");
 
         // If there are 12 cones already, exit
         if (autonCones.length >= 12) return;
@@ -113,39 +112,20 @@
         // Add the cone to the list
         autonCones.push(curCone);
 
-        /* Logic written in Python
-        -----------------------------------------------------------
-        curCount = 1
-        outputStr = f"Auton Cones: <i>{autonCones[0]} x1 |"
-
-        for i in range(1, len(autonCones)):
-            if autonCones[i] == autonCones[i-1]:
-                curCount += 1
-                if curCount < 11:
-                    outputStr = f"{outputStr[:-3]}{curCount} |"
-                else:
-                    outputStr = f"{outputStr[:-4]}{curCount} |"
-            else:
-                curCount = 1
-                outputStr += f" {autonCones[i]} x1 |"
-
-        outputStr = outputStr[:-2] + "</i>"
-        print(outputStr)
-        */
-        displayDiv.innerHTML = genAutonCones();
+        displayTxt.innerHTML = genAutonCones();
         
         calcAutonScore();
     }
 
     // Removes the last auton cone
     function undoAutonCones() {
-        var displayDiv = document.getElementById("autonConesDisp");
+        var displayTxt = document.getElementById("autonConesDisp");
 
         autonCones.pop();
         if (autonCones.length) {
-            displayDiv.innerHTML = genAutonCones();
+            displayTxt.innerHTML = genAutonCones();
         } else {
-            displayDiv.innerHTML = "Auton Cones"
+            displayTxt.innerHTML = "--";
         }
 
         calcAutonScore();
@@ -153,9 +133,9 @@
 
     // Clear the auton cones
     function clearAutonCones() {
-        var displayDiv = document.getElementById("autonConesDisp");
+        var displayTxt = document.getElementById("autonConesDisp");
         autonCones = [];
-        displayDiv.innerHTML = "Auton Cones";
+        displayTxt.innerHTML = "--";
 
         calcAutonScore();
     }
