@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "/Users/nicholas.cheng/Desktop/16417_Worlds/index.html"
+            "file": "/Users/nicholas.cheng/Desktop/16417/16417_WorldsScouting/index.html"
         }
     ]
 }
