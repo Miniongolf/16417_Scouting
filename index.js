@@ -13,7 +13,7 @@
 
     // TeleOp
     var stratsStr = "";
-    var stratsDict = {"Cycle": false, "Ownership": false, "Circuit": false};
+    var stratsDict = {"Cycle": false, "Ownership": false, "Circuit": false, "None": false};
     var doesCycle, doesOwnership, doesCircuit;
 
 // #endregion
@@ -152,10 +152,10 @@
 
 // #region TeleOp
     function genStrategy() {
-        const stratsList = ["Cycle", "Ownership", "Circuit"];
+        const stratsList = ["Cycle", "Ownership", "Circuit", "None"];
         var outputStr = "Strategy: ";
         stratsStr = "";
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 4; i++) {
             if (stratsDict[stratsList[i]]) {
                 stratsStr += `${stratsList[i]} `;
             }
@@ -172,11 +172,14 @@
         var cycleColour = stratsDict["Cycle"] ? "green":"sys";
         var ownerColour = stratsDict["Ownership"] ? "green":"sys";
         var circuitColour = stratsDict["Circuit"] ? "green":"sys";
+        var noneColour = stratsDict["None"] ? "red":"sys";
 
         outputStr = `<button class="${cycleColour}" onclick="toggleStrat('Cycle')">Cycle</button>
                      <button class="invis" style="padding:0px;">+</button>
                      <button class="${ownerColour}" onclick="toggleStrat('Ownership')">Ownership</button>
-                     <button class="${circuitColour}" onclick="toggleStrat('Circuit')">Circuit</button>`
+                     <button class="${circuitColour}" onclick="toggleStrat('Circuit')">Circuit</button>
+                     <br>
+                     <button class="${noneColour}" onclick="toggleStrat('None')">None</button>`
 
         return(outputStr);
     }
@@ -188,6 +191,12 @@
             stratsDict["Circuit"] = false;
         } else if (strat == "Circuit") {
             stratsDict["Ownership"] = false;
+        }
+
+        if (strat == "None") {
+            stratsDict = {"Cycle": false, "Ownership": false, "Circuit": false, "None": true};
+        } else {
+            stratsDict["None"] = false;
         }
 
         document.getElementById("stratDisp").innerHTML = genStrategy();
