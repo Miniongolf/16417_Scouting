@@ -209,6 +209,7 @@
 function genFormLink() {
     matchNum = document.getElementById("matchNum").value;
     teamNum = document.getElementById("teamNum").value;
+    notes = document.getElementById("notes").value;
 
     conesUsed = autonCones.length;
     
@@ -221,7 +222,7 @@ function genFormLink() {
         autonConesStr = "None";
     }
 
-    var formURL = `https://docs.google.com/forms/d/e/1FAIpQLScfip4xqA6_sHUVIx5n9OQWzKGp4TLn_0gSyL_qSBb4_KVV0A/formResponse?usp=pp_url&entry.2069581590=${matchNum}&entry.844732376=${teamNum}&entry.1470326169=${startPos}&entry.1186107460=${startSide}&entry.1017313550=${randomPos}&entry.980911135=${autonConesStr}&entry.1049932560=${conesUsed}&entry.2006005073=${autonScore}&entry.436157894=${parkingPos}&entry.230575694=${stratsStr}&submit=Submit`.replace(/ /g, '+');
+    var formURL = `https://docs.google.com/forms/d/e/1FAIpQLScfip4xqA6_sHUVIx5n9OQWzKGp4TLn_0gSyL_qSBb4_KVV0A/formResponse?usp=pp_url&entry.2069581590=${matchNum}&entry.844732376=${teamNum}&entry.1470326169=${startPos}&entry.1186107460=${startSide}&entry.1017313550=${randomPos}&entry.980911135=${autonConesStr}&entry.1049932560=${conesUsed}&entry.2006005073=${autonScore}&entry.436157894=${parkingPos}&entry.230575694=${stratsStr}&entry.1690590291=${notes}&submit=Submit`.replace(/ /g, '+');
 
     console.log(formURL);
     open(formURL);
