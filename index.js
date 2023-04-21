@@ -98,6 +98,7 @@
         outputStr = outputStr.replace(/Station low/g,  toColour("S", "rTxt"));
         outputStr = outputStr.replace(/Close low/g,    toColour("L", "rTxt"));
         outputStr = outputStr.replace(/\*Miss\*/g,     toColour("X", "bTxt"));
+        outputStr = outputStr.replace(/\*Inter\*/g,     toColour("In", "bTxt"));
         outputStr = outputStr.slice(0, -1) + "</i>";
 
         return outputStr;
